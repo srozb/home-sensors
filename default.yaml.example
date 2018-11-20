@@ -1,0 +1,15 @@
+sensor:
+  name: outside air sensor
+  type: sds011
+  interval: 900
+  serial_port: /dev/serial0
+
+logging:
+  level: INFO
+
+target:
+  mqtt:
+    - host: 192.168.0.1
+    - user: user
+    - pass: pass
+    - topic: topic

@@ -1,0 +1,11 @@
+[Unit]
+Description=home-sensors
+After=network-online.target
+
+[Service]
+User=home-sensors
+PIDFile=/home/home-sensors/home-sensors/home-sensors.pid
+ExecStart=/home/home-sensors/home-sensors/main.py
+
+[Install]
+WantedBy=multi-user.target
