@@ -9,7 +9,7 @@ logging:
 
 target:
   mqtt:
-    - host: 192.168.0.1
-    - user: user
-    - pass: pass
-    - topic: topic
+    host: 192.168.0.1
+    user: user
+    pass: pass
+    topic: topic

@@ -7,6 +7,7 @@ import logging
 class Target():
     def __init__(self):
         ""
+
     def on_connect(self, client, userdata, flags, rc):
         logging.debug("MQTT Connected with result code " + str(rc))
 
@@ -21,10 +22,13 @@ class Target():
         self.client.disconnect()
 
     def setup(self, params):
-        self.host = params['host']
-        self.port = params['port'] if 'port' in params else 1883
-        self.topic = params['topic']
-        self.auth = {'username': params['user'], 'password': params['pass']}
+        self.host = params['mqtt']['host']
+        self.port = params['mqtt']['port'] if 'port' in params['mqtt'] else 1883
+        self.topic = params['mqtt']['topic']
+        self.auth = {
+            'username': params['mqtt']['user'],
+            'password': params['mqtt']['pass']
+        }
         self.client = mqtt.Client()
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
