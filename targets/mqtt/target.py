@@ -18,7 +18,7 @@ class Target():
         payload = json.dumps(data)
         logging.debug("send payload: {}".format(payload))
         self.client.connect(self.host, self.port)
-        self.client.publish(self.topic, data)
+        self.client.publish(self.topic, payload)
         self.client.disconnect()
 
     def setup(self, params):

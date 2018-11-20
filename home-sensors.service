@@ -4,6 +4,7 @@ After=network-online.target
 
 [Service]
 User=home-sensors
+WorkingDirectory=/home/home-sensors/home-sensors
 PIDFile=/home/home-sensors/home-sensors/home-sensors.pid
 ExecStart=/home/home-sensors/home-sensors/main.py
 
