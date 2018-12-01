@@ -5,6 +5,7 @@ import sys
 import yaml
 import importlib
 import time
+from tenacity import *
 
 
 def read_yaml():
@@ -38,6 +39,7 @@ def daemon_init():
     return params
 
 
+@retry(wait=wait_exponential(multiplier=1, min=2, max=900))
 def daemon_run(Sensor, Target, interval):
     logging.info("entering pooling loop.")
     while True:
